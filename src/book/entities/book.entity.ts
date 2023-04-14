@@ -5,6 +5,9 @@ export class Book {
     @Prop({ required: true })
     title: string;
 
+    @Prop({ required: false, default: ""})
+    subtitle: string;
+
     @Prop({ type: [String], required: true })
     authors: string[];
 

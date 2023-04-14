@@ -12,11 +12,12 @@ export class BookService {
     @InjectModel(Book.name)
     private bookModel: Model<BookDocument>
   ) {}
-  
+
   async create(createBookDto: CreateBookDto) {
-    
+
     const {
       title,
+      subtitle,
       authors,
       genre,
       edition,
@@ -35,7 +36,7 @@ export class BookService {
     } = createBookDto;
 
     const maybe = await this.bookModel.findOne({ title: title });
-    
+
     if (maybe) {
       return -1;
     }
@@ -45,6 +46,7 @@ export class BookService {
 
     const newBook = new this.bookModel({
       title,
+      subtitle,
       authors: authorsArray,
       genre,
       edition,

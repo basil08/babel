@@ -1,5 +1,6 @@
 export class CreateBookDto {
     title: string;
+    subtitle: string;
     authors: string;
     genre: string;
     edition: number;
