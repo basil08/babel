@@ -24,6 +24,7 @@ export class BookService {
       language,
       isbn,
       ddc,
+      publisher,
       coverUrl,
       description,
       numPages,
@@ -48,6 +49,7 @@ export class BookService {
       title,
       subtitle,
       authors: authorsArray,
+      publisher,
       genre,
       edition,
       language,
@@ -75,8 +77,8 @@ export class BookService {
     return await this.bookModel.findById(id);
   }
 
-  update(id: string, updateBookDto: UpdateBookDto) {
-    return this.bookModel.findByIdAndUpdate(id, updateBookDto);
+  async update(id: string, updateBookDto: UpdateBookDto) {
+    return await this.bookModel.findByIdAndUpdate(id, updateBookDto);
   }
 
   async remove(id: string) {

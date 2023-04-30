@@ -11,6 +11,9 @@ export class Book {
     @Prop({ type: [String], required: true })
     authors: string[];
 
+    @Prop({ required: false, default: null })
+    publisher: string;
+
     @Prop({ required: true })
     genre: string;
 
